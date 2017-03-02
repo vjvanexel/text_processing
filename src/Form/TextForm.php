@@ -90,12 +90,6 @@ class TextForm extends Form
                 ],
             ],
         ]);
-        /*$this->add([
-            'type' => OriginalTextFieldset::class,
-            'options' => [
-                'use_as_base_fieldset' => true,
-            ]
-        ]);*/
 
         $this->add([
             'name' => 'submit',
@@ -108,10 +102,5 @@ class TextForm extends Form
         ]);
     }
     
-    public function toDisplayFormat()
-    {
-        //$this->remove('lines');
 
-        return $this;
-    }
 }
