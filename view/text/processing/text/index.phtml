@@ -1,0 +1,17 @@
+<?php
+$title = 'Texts Overview';
+$this->headTitle($title);
+?>
+<h1><?php $this->escapeHtml($title) ?></h1>
+<a href="text/edit" class="btn btn-default">Add new text</a>
+<div id="texts">
+    <div class="row col-md-8">
+        Texts:
+    </div>
+<?php foreach ($texts as $text) {?>
+    <div class="row col-md-12">
+        <span class="col-md-3"><a href="text/show/<?php echo $text['text_id'] ?>"><?php echo $text['text_id'] ?></a></span>
+        <span class="col-md-2"><a href="text/edit/<?php echo $text['text_id'] ?>" class="btn btn-default">edit</a> </span>
+    </div>
+<?php } ?>
+</div>

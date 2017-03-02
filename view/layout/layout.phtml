@@ -1,0 +1,36 @@
+<?= $this->doctype() ?>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <?= $this->headMeta()
+        ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+        ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+    ?>
+
+    <!-- Le styles -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Scripts -->
+    <?= $this->headScript()
+        ->prependFile($this->basePath('js/textproc.js'))
+        ->prependFile('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        ->prependFile('https://code.jquery.com/ui/1.12.1/jquery-ui.js')
+        ->prependFile($this->basePath('js/jquery-3.1.1.min.js'))
+
+    ?>
+</head>
+<body>
+<div class="container">
+    <?= $this->content ?>
+    <hr>
+    <footer>
+        <p> Put footer here for example. </p>
+    </footer>
+</div>
+<?= $this->inlineScript() ?>
+</body>
+</html>

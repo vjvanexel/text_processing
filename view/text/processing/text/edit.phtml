@@ -1,0 +1,55 @@
+<?php
+$title = 'Texts Overview';
+$this->headTitle($title);
+?>
+<h1><?php $this->escapeHtml($title) ?></h1>
+<?php
+if (isset($origTextForm->get('text_id')->value)) {
+    $origTextForm->setAttribute('action', $this->url('text', [
+            'action' => 'edit',
+            'id' => $origTextForm->get('text_id')->value
+        ]
+    ));
+    $translTextForm->setAttribute('action', $this->url('text', [
+            'action' => 'edit',
+            'id' => $origTextForm->get('text_id')->value
+        ]
+    ));
+} else {
+    $origTextForm->setAttribute('action', $this->url('text', [
+            'action' => 'edit'
+        ]
+    ));
+    $translTextForm->setAttribute('action', $this->url('text', [
+            'action' => 'edit'
+        ]
+    ));
+}
+
+$origTextForm->prepare(); ?>
+<?php echo $this->form()->openTag($origTextForm); ?>
+<div class="row">
+    <?php echo $this->formRow($origTextForm->get('text_id')); ?>
+</div>
+<div class="row">
+<?php
+    echo $this->formRow($origTextForm->get('line_start'));
+    echo $this->formRow($origTextForm->get('word_start')); ?>
+</div>
+<div class="row">
+    <?php echo $this->formRow($origTextForm->get('content'));
+    ?>
+<div class="clearfix">&nbsp</div>
+<?php
+$translTextForm->prepare();
+$translContentElem = $translTextForm->get('content');
+$translContentElem->setName('transl-content');
+$translContentElem->setLabel('Translation: ');
+
+echo $this->formRow($translContentElem);
+?>
+<div class="clearfix">&nbsp</div>
+<?php
+echo $this->formElement($translTextForm->get('submit'));
+echo $this->form()->closeTag();
+?>
